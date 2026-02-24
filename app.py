@@ -48,3 +48,8 @@ def predict(data: Person):
         "probability_<=50K": round(float(proba[0]), 3),
         "probability_>50K": round(float(proba[1]), 3)
     }
+
+@app.get("/")
+def home():
+    return {"message": "Adult Income Prediction API is running 🚀"}
+
