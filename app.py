@@ -8,7 +8,11 @@ import joblib
 # -------------------------
 model = joblib.load("adult_income_pipeline.pkl")
 
-app = FastAPI(title="Adult Income Prediction API")
+app = FastAPI(
+    title="Adult Income Prediction API",
+    docs_url="/",
+    redoc_url=None
+)
 
 # -------------------------
 # Input Schema
@@ -49,7 +53,5 @@ def predict(data: Person):
         "probability_>50K": round(float(proba[1]), 3)
     }
 
-@app.get("/")
-def home():
-    return {"message": "Adult Income Prediction API is running 🚀"}
+
 
